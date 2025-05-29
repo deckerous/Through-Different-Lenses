@@ -1,0 +1,2 @@
+D:\Unity Projects\Through-Different-Lenses\Library\PramData\AndroidApplicationController\Cache\com.UnityTechnologies.com.unity.template.urpblank\gradle-project\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\Unity Projects\Through-Different-Lenses\Library\PramData\AndroidApplicationController\Cache\com.UnityTechnologies.com.unity.template.urpblank\gradle-project\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
