@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class FilterControl : MonoBehaviour
 {
     public Volume volume;
-    private ColorAdjustments colorAdjust;
-    private DepthOfField depthOfField;
+    public static ColorAdjustments colorAdjust;
+    public static DepthOfField depthOfField;
     private FilmGrain filmGrain;
     private Vignette vignette;
+
     void Start()
     {
         //Grab filter values
@@ -23,6 +24,7 @@ public class FilterControl : MonoBehaviour
         depthOfField.active = false;
         filmGrain.active = false;
         vignette.active = false;
+
     }
 
     void Update()
