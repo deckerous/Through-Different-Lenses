@@ -8,25 +8,48 @@ public class FilterControl : MonoBehaviour
     public Volume volume;
     private ColorAdjustments colorAdjust;
     private DepthOfField depthOfField;
+    private FilmGrain filmGrain;
+    private Vignette vignette;
     void Start()
     {
         //Grab filter values
         volume.profile.TryGet<ColorAdjustments>(out colorAdjust);
-        Debug.Log("colorAdjust: " + colorAdjust);
         volume.profile.TryGet<DepthOfField>(out depthOfField);
-        Debug.Log("DOF: " + depthOfField);
+        volume.profile.TryGet<FilmGrain>(out filmGrain);
+        volume.profile.TryGet<Vignette>(out vignette);
 
         //Disable all filters
         colorAdjust.active = false;
         depthOfField.active = false;
+        filmGrain.active = false;
+        vignette.active = false;
     }
 
     void Update()
     {
-        
+    
+        //toggle depth of field blurr enable on control press
         if (Keyboard.current.ctrlKey.isPressed)
         {
-            depthOfField.active = true;
+            depthOfField.active = !depthOfField.active;
+        }
+
+        //toggle red filter on shift press
+        if (Keyboard.current.shiftKey.isPressed)
+        {
+            colorAdjust.active = !colorAdjust.active;
+        }
+
+        //toggle grainy filter on alt press
+        if (Keyboard.current.altKey.isPressed)
+        {
+            filmGrain.active = !filmGrain.active;
+        }
+
+        //toggle vignette on backspace press
+        if (Keyboard.current.backspaceKey.isPressed)
+        {
+            vignette.active = !vignette.active;
         }
     }
 }
