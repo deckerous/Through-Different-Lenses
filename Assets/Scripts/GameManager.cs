@@ -1,14 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameStates { countDown, running, raceOver };
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public int levelNum = 1; 
-
-    GameStates gameState = GameStates.countDown;
 
     private void Awake()
     {
@@ -23,7 +19,6 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        PlayerData.levelToLoad = SceneManager.GetActiveScene().name;
     }
 
     void Start()
@@ -33,47 +28,43 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isTimerRunning)
+        if (levelNum == 0)
         {
-            raceTimer += Time.deltaTime; // Increment timer
+            //TODO: Logic for blur (no glasses wakeup)
+        }
+        else if (levelNum == 1)
+        {
+            //TODO: Turn on color filter and turn off blur
+        }
+        else if (levelNum == 2)
+        {
+            //TODO: Turn on vignette and turn off color
+        }
+        else if (levelNum == 3)
+        {
+            //TODO: Turn on "Glasses LOD" and turn off vignette
+        }
+        else if (levelNum == 4)
+        {
+            //TODO: Turn on Superstrength and red turn off LOF
+        }
+        else if (levelNum == 5)
+        {
+            //TODO: Turn on fire effects and noise and monster appear
+        }
+        else if (levelNum == 6)
+        {
+            //TODO: Turn on tiki theme (find the drink)
+        }
+        else
+        {
+            //TODO: Normal vision
         }
     }
 
-    void LevelStart()
+    public void nextLevel()
     {
-
-        Debug.Log("Level Started");
-    }
-
-    public GameStates GetGameState()
-    {
-        return gameState;
-    }
-
-    public void OnRaceStart()
-    {
-        Debug.Log("OnRaceStart");
-    }
-
-    public void OnRaceEnd()
-    {
-        Debug.Log("OnRaceEnd");
-
-    }
-
-    public float GetRaceTime()
-    {
-        return raceTimer;
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        LevelStart();
+        levelNum++;
     }
 
 }
