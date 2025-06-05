@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public int levelNum = 1; 
+    private static int levelNum = 0;
+    private static bool transitioning;
 
     private void Awake()
     {
@@ -23,57 +25,58 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        transitioning = true;
         Application.targetFrameRate = 60; // Cap frame rate
     }
 
     void Update()
     {
-        if (levelNum == 0)
+        if (transitioning && levelNum == 0)
         {
-            // blur (no glasses wakeup)
             Debug.Log("blurry activated");
             FilterControl.depthOfField.active = true;
+            transitioning = false;
         }
-        else if (levelNum == 1)
+        if (transitioning)   // triggered in the GlassesCollision Script 
         {
-            // Turn on color filter and turn off blur
-            Debug.Log("blurry deactivated");
-            FilterControl.depthOfField.active = false;
-
-            FilterControl.colorAdjust.active = true;
-            Debug.Log("blue activated");
-        }
-        else if (levelNum == 2)
-        {
-            //TODO: Turn on vignette and turn off color
-            FilterControl.colorAdjust.active = false;
-            Debug.Log("blue deactivated"); 
-        }
-        else if (levelNum == 3)
-        {
-            //TODO: Turn on "Glasses LOD" and turn off vignette
-        }
-        else if (levelNum == 4)
-        {
-            //TODO: Turn on Superstrength and red turn off LOF
-        }
-        else if (levelNum == 5)
-        {
-            //TODO: Turn on fire effects and noise and monster appear
-        }
-        else if (levelNum == 6)
-        {
-            //TODO: Turn on tiki theme (find the drink)
-        }
-        else
-        {
-            //TODO: Normal vision
+            StartCoroutine(BlinkAndDoEffects()); // then calls the async method that blinks
+            transitioning = false;
         }
     }
 
-    public void nextLevel()
+    public static void nextLevel()
     {
         levelNum++;
+    }
+    public static int getLevelNum()
+    {
+        return levelNum;
+    }
+    public static void transition()
+    {
+        transitioning = true;
+    }
+
+    private IEnumerator BlinkAndDoEffects()
+    {
+        yield return StartCoroutine(Blink.BlinkNow()); // calls blinknow in Blink.cs which has logic for level handling and then the filters are applied below
+    }
+
+    public static void level1Filter()
+    {
+        Debug.Log("blurry deactivated");
+        FilterControl.depthOfField.active = false;
+
+        FilterControl.colorAdjust.active = true;
+        Debug.Log("blue activated");
+    }
+    public static void level2Filter()
+    {
+        FilterControl.vignette.active = true;
+        Debug.Log("vignette activated");
+
+        FilterControl.colorAdjust.active = false;
+        Debug.Log("blue deactivated");
     }
 
 }
