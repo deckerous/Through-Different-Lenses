@@ -4,9 +4,8 @@ using System.Collections;
 
 public class Blink : MonoBehaviour
 {
-    public RectTransform eyelid; // Drag the UI Eyelid object here
-    public float slideDuration = 0.25f; // Duration of slide in/out
-
+    private RectTransform eyelid;
+    public float slideDuration = 0.25f;
     private static Blink _instance;
 
     private void Awake()
@@ -19,12 +18,11 @@ public class Blink : MonoBehaviour
         Debug.Log("eyelid " + eyelid);
     }
 
-    // ✅ CHANGED: Return IEnumerator so caller can wait on it
     public static IEnumerator BlinkNow()
     {
         if (_instance != null)
         {
-            yield return _instance.StartCoroutine(_instance.DoBlink());  // 🔄 Wait until blink finishes
+            yield return _instance.StartCoroutine(_instance.DoBlink());
         }
         else
         {
