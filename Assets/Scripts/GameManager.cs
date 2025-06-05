@@ -30,11 +30,18 @@ public class GameManager : MonoBehaviour
     {
         if (levelNum == 0)
         {
-            //TODO: Logic for blur (no glasses wakeup)
+            // blur (no glasses wakeup)
+            Debug.Log("blurry activated");
+            FilterControl.depthOfField.active = true;
         }
         else if (levelNum == 1)
         {
-            //TODO: Turn on color filter and turn off blur
+            // Turn on color filter and turn off blur
+            Debug.Log("blurry deactivated");
+            FilterControl.depthOfField.active = false;
+
+            FilterControl.colorAdjust.active = true;
+            Debug.Log("blue activated");
         }
         else if (levelNum == 2)
         {
