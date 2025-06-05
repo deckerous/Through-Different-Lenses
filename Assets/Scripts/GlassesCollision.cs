@@ -10,6 +10,7 @@ public class Glasses : MonoBehaviour
             GameManager.nextLevel();
             Debug.Log("level: " + GameManager.getLevelNum());
             gameObject.SetActive(false); // get rid of gameobject once collided 
+            GameManager.transition();
         }
     }
 }
