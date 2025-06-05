@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
         else if (levelNum == 2)
         {
             //TODO: Turn on vignette and turn off color
+
+            FilterControl.vignette.active = true;
+            Debug.Log("vignette activated");
+            
             FilterControl.colorAdjust.active = false;
             Debug.Log("blue deactivated");
         }
