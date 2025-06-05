@@ -12,35 +12,49 @@ public class Blink : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+
+        // Find the RectTransform from the current GameObject
         GameObject eyelidObj = this.gameObject;
         eyelid = eyelidObj.GetComponent<RectTransform>();
         Debug.Log("eyelid " + eyelid);
     }
 
-    public static void BlinkNow()
+    // ✅ CHANGED: Return IEnumerator so caller can wait on it
+    public static IEnumerator BlinkNow()
     {
         if (_instance != null)
         {
-            _instance.StartCoroutine(_instance.DoBlink());
+            yield return _instance.StartCoroutine(_instance.DoBlink());  // 🔄 Wait until blink finishes
         }
+        else
+        {
+            Debug.LogWarning("Blink instance is null");
+        }
+
         Debug.Log("blinked");
     }
 
     private IEnumerator DoBlink()
     {
-        // eyelid.gameObject.SetActive(true);
-
         Vector2 startPos = new Vector2(0, eyelid.rect.height);
         Vector2 midPos = Vector2.zero;
-        Vector2 endPos = new Vector2(0, eyelid.rect.height);
 
+        // Slide down
         yield return SlideEyelid(startPos, midPos);
 
+        // Pause in middle (eyelid fully down) and process filters
         yield return new WaitForSeconds(0.1f);
+        if (GameManager.getLevelNum() == 1)
+        {
+            GameManager.level1Filter();
+        }
+        else if (GameManager.getLevelNum() == 2)
+        {
+            GameManager.level2Filter();
+        }
 
-        yield return SlideEyelid(midPos, startPos);
-
-        // eyelid.gameObject.SetActive(false);
+        // Slide up
+            yield return SlideEyelid(midPos, startPos);
     }
 
     private IEnumerator SlideEyelid(Vector2 from, Vector2 to)
@@ -53,6 +67,7 @@ public class Blink : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        eyelid.anchoredPosition = to;
+
+        eyelid.anchoredPosition = to; // Snap to final position
     }
 }
