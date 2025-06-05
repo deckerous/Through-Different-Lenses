@@ -50,9 +50,17 @@ public class Blink : MonoBehaviour
         {
             GameManager.level2Filter();
         }
+        else if (GameManager.getLevelNum() == 3)
+        {
+            GameManager.level3Filter();
+        }
+        else if (GameManager.getLevelNum() == 4)
+        {
+            GameManager.level4Filter();
+        }
 
         // Slide up
-            yield return SlideEyelid(midPos, startPos);
+        yield return SlideEyelid(midPos, startPos);
     }
 
     private IEnumerator SlideEyelid(Vector2 from, Vector2 to)
