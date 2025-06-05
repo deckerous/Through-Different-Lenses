@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class level1glasses : MonoBehaviour
+public class Glasses : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
@@ -9,6 +9,7 @@ public class level1glasses : MonoBehaviour
         {
             GameManager.nextLevel();
             Debug.Log("level: " + GameManager.getLevelNum());
+            gameObject.SetActive(false); // get rid of gameobject once collided 
         }
     }
 }
