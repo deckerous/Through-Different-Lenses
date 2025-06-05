@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,54 +31,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (transitioning && levelNum == 0)
+        {
+            Debug.Log("blurry activated");
+            FilterControl.depthOfField.active = true;
+            transitioning = false;
+        }
         if (transitioning)
         {
-            if (levelNum == 0)
-            {
-                // blur (no glasses wakeup)
-                Debug.Log("blurry activated");
-                FilterControl.depthOfField.active = true;
-            }
-            else if (levelNum == 1)
-            {
-                // Turn on color filter and turn off blur
-                Debug.Log("blurry deactivated");
-                FilterControl.depthOfField.active = false;
-
-                FilterControl.colorAdjust.active = true;
-                Debug.Log("blue activated");
-                Blink.BlinkNow();
-            }
-            else if (levelNum == 2)
-            {
-                //TODO: Turn on vignette and turn off color
-
-                FilterControl.vignette.active = true;
-                Debug.Log("vignette activated");
-
-                FilterControl.colorAdjust.active = false;
-                Debug.Log("blue deactivated");
-            }
-            else if (levelNum == 3)
-            {
-                //TODO: Turn on "Glasses LOD" and turn off vignette
-            }
-            else if (levelNum == 4)
-            {
-                //TODO: Turn on Superstrength and red turn off LOF
-            }
-            else if (levelNum == 5)
-            {
-                //TODO: Turn on fire effects and noise and monster appear
-            }
-            else if (levelNum == 6)
-            {
-                //TODO: Turn on tiki theme (find the drink)
-            }
-            else
-            {
-                //TODO: Normal vision
-            }
+            StartCoroutine(BlinkAndDoEffects());
             transitioning = false;
         }
     }
@@ -93,6 +55,28 @@ public class GameManager : MonoBehaviour
     public static void transition()
     {
         transitioning = true;
+    }
+
+    private IEnumerator BlinkAndDoEffects()
+    {
+        yield return StartCoroutine(Blink.BlinkNow());
+    }
+
+    public static void level1Filter()
+    {
+        Debug.Log("blurry deactivated");
+        FilterControl.depthOfField.active = false;
+
+        FilterControl.colorAdjust.active = true;
+        Debug.Log("blue activated");
+    }
+    public static void level2Filter()
+    {
+        FilterControl.vignette.active = true;
+        Debug.Log("vignette activated");
+
+        FilterControl.colorAdjust.active = false;
+        Debug.Log("blue deactivated");
     }
 
 }
