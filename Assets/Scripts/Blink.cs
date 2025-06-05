@@ -12,7 +12,7 @@ public class Blink : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        GameObject eyelidObj = GameObject.Find("Canvas/eyelid");
+        GameObject eyelidObj = this.gameObject;
         eyelid = eyelidObj.GetComponent<RectTransform>();
         Debug.Log("eyelid " + eyelid);
     }
@@ -28,7 +28,7 @@ public class Blink : MonoBehaviour
 
     private IEnumerator DoBlink()
     {
-        eyelid.gameObject.SetActive(true);
+        // eyelid.gameObject.SetActive(true);
 
         Vector2 startPos = new Vector2(0, eyelid.rect.height);
         Vector2 midPos = Vector2.zero;
@@ -38,9 +38,9 @@ public class Blink : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        yield return SlideEyelid(midPos, endPos);
+        yield return SlideEyelid(midPos, startPos);
 
-        eyelid.gameObject.SetActive(false);
+        // eyelid.gameObject.SetActive(false);
     }
 
     private IEnumerator SlideEyelid(Vector2 from, Vector2 to)

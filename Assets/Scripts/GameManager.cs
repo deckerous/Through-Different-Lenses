@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     private static int levelNum = 0;
-    private static bool transitioning = false;
+    private static bool transitioning;
 
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        transitioning = true;
         Application.targetFrameRate = 60; // Cap frame rate
     }
 
