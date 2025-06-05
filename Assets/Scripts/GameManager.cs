@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public int levelNum = 1; 
+    private static int levelNum = 0;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             //TODO: Turn on vignette and turn off color
             FilterControl.colorAdjust.active = false;
-            Debug.Log("blue deactivated"); 
+            Debug.Log("blue deactivated");
         }
         else if (levelNum == 3)
         {
@@ -71,9 +71,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void nextLevel()
+    public static void nextLevel()
     {
         levelNum++;
+    }
+    public static int getLevelNum()
+    {
+        return levelNum;
     }
 
 }
