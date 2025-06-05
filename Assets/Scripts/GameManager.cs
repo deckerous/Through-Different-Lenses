@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
             FilterControl.depthOfField.active = true;
             transitioning = false;
         }
-        if (transitioning)
+        if (transitioning)   // triggered in the GlassesCollision Script 
         {
-            StartCoroutine(BlinkAndDoEffects());
+            StartCoroutine(BlinkAndDoEffects()); // then calls the async method that blinks
             transitioning = false;
         }
     }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator BlinkAndDoEffects()
     {
-        yield return StartCoroutine(Blink.BlinkNow());
+        yield return StartCoroutine(Blink.BlinkNow()); // calls blinknow in Blink.cs which has logic for level handling and then the filters are applied below
     }
 
     public static void level1Filter()
