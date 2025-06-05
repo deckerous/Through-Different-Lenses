@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
@@ -78,5 +79,22 @@ public class GameManager : MonoBehaviour
         FilterControl.colorAdjust.active = false;
         Debug.Log("blue deactivated");
     }
+    public static void level3Filter()
+    {
+        FilterControl.vignette.active = false;
+        Debug.Log("vignette deactivated");
+        Debug.Log("lod on!");
+        //TODO LOD
+    }
 
+    public static void level4Filter()
+    {
+        Debug.Log("strength on!");
+
+        GameObject sphere = GameObject.Find("Sphere");
+        GameObject spheretuah = GameObject.Find("Sphere2");
+        sphere.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        
+    }
 }
