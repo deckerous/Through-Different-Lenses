@@ -12,6 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/RoomScene.unity
     guid: 819bc199288ef7748a3957325551c143
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f3b70909e005f644db66e768bb94adc5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 7a9b098b19e3e2847937a55a516c7f96, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ab686a832c7231343ab8806bf3b9b927, type: 2}
