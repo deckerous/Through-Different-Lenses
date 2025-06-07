@@ -1,5 +1,0 @@
-D:/Unity Projects/Through-Different-Lenses/.utmp/RelWithDebInfo/k13496c3/arm64-v8a/CMakeFiles/edit_cache.dir
-D:/Unity Projects/Through-Different-Lenses/.utmp/RelWithDebInfo/k13496c3/arm64-v8a/CMakeFiles/rebuild_cache.dir
-D:/Unity Projects/Through-Different-Lenses/.utmp/RelWithDebInfo/k13496c3/arm64-v8a/GameActivity/CMakeFiles/game.dir
-D:/Unity Projects/Through-Different-Lenses/.utmp/RelWithDebInfo/k13496c3/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-D:/Unity Projects/Through-Different-Lenses/.utmp/RelWithDebInfo/k13496c3/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

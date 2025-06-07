@@ -36,7 +36,7 @@ public class GlassesObject : MonoBehaviour
             }
 
         }
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
         toReveal.SetActive(true);
     }
 }
