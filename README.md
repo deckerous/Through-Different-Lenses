@@ -6,9 +6,9 @@ You are blind and are looking for your glasses in a VR environment. You discover
 
 ## Team assignments
 - Dalton - Interactions, shaders, filters. 
-- Dom - model, Filters, shaders
+- Dom - Filters, shaders
 - Martin - Modeling
-- James - Envoronment, transitions
+- James - Environment, transitions
   
 ## Feature list
 - Possible scene augmenting glasses features:
