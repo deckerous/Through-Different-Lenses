@@ -92,10 +92,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("level 4 time");
 
 
-        GameObject sphere = GameObject.Find("Sphere");
-        GameObject spheretuah = GameObject.Find("Sphere2");
-        sphere.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
-        spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        GameObject clothes = GameObject.Find("Decor/clothes");
+        //GameObject spheretuah = GameObject.Find("Sphere2");
+        clothes.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        //spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
 
     }
 
