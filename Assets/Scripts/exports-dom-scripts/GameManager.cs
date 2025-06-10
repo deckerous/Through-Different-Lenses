@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public static void nextLevel()
     {
+        Debug.Log("next evel triggered");
         levelNum++;
         transition();
     }
@@ -107,7 +108,14 @@ public class GameManager : MonoBehaviour
     public static void level6Filter()
     {
         Debug.Log("tiki filter on + monster gone");
+        GameObject.Find("Monster").SetActive(false);
+        GameObject.Find("House/floor").SetActive(false);
+        GameObject.Find("Monster").SetActive(false);
+        GameObject.Find("Decor/clothes").SetActive(false);
+        GameObject.Find("Decor/clothes (1)").SetActive(false);
+        GameObject.Find("Beach").SetActive(true);
+
         //disable: floor, scenedirector/plane, piles of clothes, flame effect
-        
+
     }
 }
