@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Max Files
 *.[Mm]ax
+Assets/Base XR Scene.unity
+Assets/Scenes/SampleScene.unity
+Assets/TesterRoom.unity
