@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(BlinkAndDoEffects());
+        }
         if (transitioning && levelNum == 0)
         {
             FilterControl.depthOfField.active = true;

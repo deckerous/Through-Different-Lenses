@@ -15,10 +15,15 @@ public class Blink : MonoBehaviour
 
         eyelid = this.transform;
 
-        openPosition = eyelid.position;
-        closedPosition = new Vector3(openPosition.x, -0f, openPosition.z); // Adjust Y as needed
+        openPosition = eyelid.localPosition;
+        closedPosition = new Vector3(openPosition.x, openPosition.y - 1f, openPosition.z); // Adjust Y as needed
         Debug.Log("eyelid position: " + eyelid.position);
     }
+
+    // public void Update()
+    // {
+    //     this.transform.localPosition = new Vector3(0f, 0.765f, 0.434f);
+    // }
 
     public static IEnumerator BlinkNow()
     {
@@ -63,11 +68,11 @@ public class Blink : MonoBehaviour
         while (elapsed < slideDuration)
         {
             float t = elapsed / slideDuration;
-            eyelid.position = Vector3.Lerp(from, to, t);
+            eyelid.localPosition = Vector3.Lerp(from, to, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        eyelid.position = to;
+        eyelid.localPosition = to;
     }
 }
