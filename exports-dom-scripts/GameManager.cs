@@ -32,12 +32,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(BlinkAndDoEffects());
-        }
         if (transitioning && levelNum == 0)
         {
+            Debug.Log("blurry activated");
             FilterControl.depthOfField.active = true;
             transitioning = false;
         }
@@ -51,7 +48,6 @@ public class GameManager : MonoBehaviour
     public static void nextLevel()
     {
         levelNum++;
-        transition();
     }
     public static int getLevelNum()
     {
@@ -69,62 +65,36 @@ public class GameManager : MonoBehaviour
 
     public static void level1Filter()
     {
-        Debug.Log("level 1 time");
+        Debug.Log("blurry deactivated");
         FilterControl.depthOfField.active = false;
 
         FilterControl.colorAdjust.active = true;
+        Debug.Log("blue activated");
     }
     public static void level2Filter()
     {
-        Debug.Log("level 2 time");
         FilterControl.vignette.active = true;
-        // adjust the vignette heavily
+        Debug.Log("vignette activated");
+
         FilterControl.colorAdjust.active = false;
+        Debug.Log("blue deactivated");
     }
     public static void level3Filter()
     {
-        Debug.Log("level 3 time");
-
         FilterControl.vignette.active = false;
-        // Debug.Log("vignette deactivated");
-        // Debug.Log("lod on!");
+        Debug.Log("vignette deactivated");
+        Debug.Log("lod on!");
         //TODO LOD
     }
 
     public static void level4Filter()
     {
-        Debug.Log("level 4 time");
+        Debug.Log("strength on!");
 
-
-        GameObject clothes = GameObject.Find("Decor/clothes");
-        //GameObject spheretuah = GameObject.Find("Sphere2");
-        clothes.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
-        //spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
-
-    }
-
-    public static void level5Filter()
-    {
-        Debug.Log("level 5 time");
-        FilterControl.filmGrain.active = true;
-
-        // Debug.Log("fire filter on + monster here");
-
-    }
-    public static void level6Filter()
-    {
-        Debug.Log("level 6 time");
-        FilterControl.filmGrain.active = false;
-
-        // Debug.Log("tiki filter on + monster gone");
-        GameObject.Find("Monster").SetActive(false);
-        GameObject.Find("House/floor").SetActive(false);
-        GameObject.Find("Monster").SetActive(false);
-        GameObject.Find("Decor/clothes").SetActive(false);
-        GameObject.Find("Decor/clothes (1)").SetActive(false);
-        GameObject.Find("Beach").SetActive(true);
-
-        //disable: floor, scenedirector/plane, piles of clothes, flame effect
-
+        GameObject sphere = GameObject.Find("Sphere");
+        GameObject spheretuah = GameObject.Find("Sphere2");
+        sphere.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+        
     }
 }
