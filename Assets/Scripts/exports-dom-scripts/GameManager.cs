@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public static void nextLevel()
     {
         levelNum++;
+        transition();
     }
     public static int getLevelNum()
     {
@@ -95,6 +96,18 @@ public class GameManager : MonoBehaviour
         GameObject spheretuah = GameObject.Find("Sphere2");
         sphere.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
         spheretuah.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
+
+    }
+
+    public static void level5Filter()
+    {
+        Debug.Log("fire filter on + monster here");
+
+    }
+    public static void level6Filter()
+    {
+        Debug.Log("tiki filter on + monster gone");
+        //disable: floor, scenedirector/plane, piles of clothes, flame effect
         
     }
 }
