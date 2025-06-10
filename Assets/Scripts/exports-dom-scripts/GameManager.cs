@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("level 3 time");
 
         FilterControl.vignette.active = false;
-        Debug.Log("vignette deactivated");
-        Debug.Log("lod on!");
+        // Debug.Log("vignette deactivated");
+        // Debug.Log("lod on!");
         //TODO LOD
     }
 
@@ -103,14 +103,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("level 5 time");
 
-        Debug.Log("fire filter on + monster here");
+        // Debug.Log("fire filter on + monster here");
 
     }
     public static void level6Filter()
     {
         Debug.Log("level 6 time");
 
-        Debug.Log("tiki filter on + monster gone");
+        // Debug.Log("tiki filter on + monster gone");
         GameObject.Find("Monster").SetActive(false);
         GameObject.Find("House/floor").SetActive(false);
         GameObject.Find("Monster").SetActive(false);
