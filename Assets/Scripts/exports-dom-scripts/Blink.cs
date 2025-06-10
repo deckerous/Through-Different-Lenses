@@ -58,6 +58,14 @@ public class Blink : MonoBehaviour
         {
             GameManager.level4Filter();
         }
+        else if (GameManager.getLevelNum() == 5)
+        {
+            GameManager.level5Filter();
+        }
+        else if (GameManager.getLevelNum() == 6)
+        {
+            GameManager.level6Filter();
+        }
 
         // Slide up
         yield return SlideEyelid(midPos, startPos);
