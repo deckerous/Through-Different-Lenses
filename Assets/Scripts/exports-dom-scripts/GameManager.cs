@@ -5,6 +5,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameObject Beach;
     public static GameManager instance = null;
     private static int levelNum = 0;
     private static bool transitioning;
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Beach = GameObject.Find("Beach");
+        Debug.Log("beach: " + Beach.name);
+        Beach.SetActive(false);
         transitioning = true;
         Application.targetFrameRate = 60; // Cap frame rate
     }
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(BlinkAndDoEffects());
+            nextLevel();
         }
         if (transitioning && levelNum == 0)
         {
@@ -107,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("level 5 time");
         FilterControl.filmGrain.active = true;
-
+        GameObject.Find("Monster").SetActive(true);
         // Debug.Log("fire filter on + monster here");
 
     }
@@ -117,14 +122,25 @@ public class GameManager : MonoBehaviour
         FilterControl.filmGrain.active = false;
 
         // Debug.Log("tiki filter on + monster gone");
-        GameObject.Find("Monster").SetActive(false);
-        GameObject.Find("House/floor").SetActive(false);
-        GameObject.Find("Monster").SetActive(false);
-        GameObject.Find("Decor/clothes").SetActive(false);
-        GameObject.Find("Decor/clothes (1)").SetActive(false);
-        GameObject.Find("Beach").SetActive(true);
+        if (GameObject.Find("Monster"))
+        {
+            GameObject.Find("Monster").SetActive(false);
+        }
+        Beach.SetActive(true);
+        if (GameObject.Find("House/floor"))
+        {
+            GameObject.Find("House/floor").SetActive(false);
+        }
+        if (GameObject.Find("Decor/clothes"))
+        {
+            GameObject.Find("Decor/clothes").SetActive(false);
+        }
+        if (GameObject.Find("Decor/clothes (1)"))
+        {
+            GameObject.Find("Decor/clothes (1)").SetActive(false);
+        }
 
         //disable: floor, scenedirector/plane, piles of clothes, flame effect
 
-    }
+        }
 }
