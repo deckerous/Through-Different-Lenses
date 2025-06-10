@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("level 2 time");
         FilterControl.vignette.active = true;
-
+        // adjust the vignette heavily
         FilterControl.colorAdjust.active = false;
     }
     public static void level3Filter()
@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
     public static void level5Filter()
     {
         Debug.Log("level 5 time");
+        FilterControl.filmGrain.active = true;
 
         // Debug.Log("fire filter on + monster here");
 
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
     public static void level6Filter()
     {
         Debug.Log("level 6 time");
+        FilterControl.filmGrain.active = false;
 
         // Debug.Log("tiki filter on + monster gone");
         GameObject.Find("Monster").SetActive(false);
