@@ -8,8 +8,8 @@ public class FilterControl : MonoBehaviour
     public Volume volume;
     public static ColorAdjustments colorAdjust;
     public static DepthOfField depthOfField;
-    private FilmGrain filmGrain;
-    private Vignette vignette;
+    public static FilmGrain filmGrain;
+    public static Vignette vignette;
 
     void Start()
     {
