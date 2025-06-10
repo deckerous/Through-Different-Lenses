@@ -1,21 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class Blink : MonoBehaviour
 {
-    private RectTransform eyelid;
+    private Transform eyelid;
     public float slideDuration = 0.25f;
     private static Blink _instance;
+    private Vector3 closedPosition;
+    private Vector3 openPosition;
 
     private void Awake()
     {
         _instance = this;
 
-        // Find the RectTransform from the current GameObject
-        GameObject eyelidObj = this.gameObject;
-        eyelid = eyelidObj.GetComponent<RectTransform>();
-        Debug.Log("eyelid " + eyelid);
+        eyelid = this.transform;
+
+        openPosition = eyelid.position;
+        closedPosition = new Vector3(openPosition.x, -0f, openPosition.z); // Adjust Y as needed
+        Debug.Log("eyelid position: " + eyelid.position);
     }
 
     public static IEnumerator BlinkNow()
@@ -34,54 +36,38 @@ public class Blink : MonoBehaviour
 
     private IEnumerator DoBlink()
     {
-        Vector2 startPos = new Vector2(0, eyelid.rect.height);
-        Vector2 midPos = Vector2.zero;
-
         // Slide down
-        yield return SlideEyelid(startPos, midPos);
+        yield return SlideEyelid(openPosition, closedPosition);
 
-        // Pause in middle (eyelid fully down) and process filters
+        // Wait briefly
         yield return new WaitForSeconds(0.1f);
-        if (GameManager.getLevelNum() == 1)
+
+        int level = GameManager.getLevelNum();
+        switch (level)
         {
-            GameManager.level1Filter();
-        }
-        else if (GameManager.getLevelNum() == 2)
-        {
-            GameManager.level2Filter();
-        }
-        else if (GameManager.getLevelNum() == 3)
-        {
-            GameManager.level3Filter();
-        }
-        else if (GameManager.getLevelNum() == 4)
-        {
-            GameManager.level4Filter();
-        }
-        else if (GameManager.getLevelNum() == 5)
-        {
-            GameManager.level5Filter();
-        }
-        else if (GameManager.getLevelNum() == 6)
-        {
-            GameManager.level6Filter();
+            case 1: GameManager.level1Filter(); break;
+            case 2: GameManager.level2Filter(); break;
+            case 3: GameManager.level3Filter(); break;
+            case 4: GameManager.level4Filter(); break;
+            case 5: GameManager.level5Filter(); break;
+            case 6: GameManager.level6Filter(); break;
         }
 
         // Slide up
-        yield return SlideEyelid(midPos, startPos);
+        yield return SlideEyelid(closedPosition, openPosition);
     }
 
-    private IEnumerator SlideEyelid(Vector2 from, Vector2 to)
+    private IEnumerator SlideEyelid(Vector3 from, Vector3 to)
     {
         float elapsed = 0f;
         while (elapsed < slideDuration)
         {
             float t = elapsed / slideDuration;
-            eyelid.anchoredPosition = Vector2.Lerp(from, to, t);
+            eyelid.position = Vector3.Lerp(from, to, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        eyelid.anchoredPosition = to; // Snap to final position
+        eyelid.position = to;
     }
 }
