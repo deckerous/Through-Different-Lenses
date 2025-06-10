@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     {
         if (transitioning && levelNum == 0)
         {
-            Debug.Log("blurry activated");
             FilterControl.depthOfField.active = true;
             transitioning = false;
         }
@@ -47,7 +46,6 @@ public class GameManager : MonoBehaviour
 
     public static void nextLevel()
     {
-        Debug.Log("next evel triggered");
         levelNum++;
         transition();
     }
@@ -67,22 +65,22 @@ public class GameManager : MonoBehaviour
 
     public static void level1Filter()
     {
-        Debug.Log("blurry deactivated");
+        Debug.Log("level 1 time");
         FilterControl.depthOfField.active = false;
 
         FilterControl.colorAdjust.active = true;
-        Debug.Log("blue activated");
     }
     public static void level2Filter()
     {
+        Debug.Log("level 2 time");
         FilterControl.vignette.active = true;
-        Debug.Log("vignette activated");
 
         FilterControl.colorAdjust.active = false;
-        Debug.Log("blue deactivated");
     }
     public static void level3Filter()
     {
+        Debug.Log("level 3 time");
+
         FilterControl.vignette.active = false;
         Debug.Log("vignette deactivated");
         Debug.Log("lod on!");
@@ -91,7 +89,8 @@ public class GameManager : MonoBehaviour
 
     public static void level4Filter()
     {
-        Debug.Log("strength on!");
+        Debug.Log("level 4 time");
+
 
         GameObject sphere = GameObject.Find("Sphere");
         GameObject spheretuah = GameObject.Find("Sphere2");
@@ -102,11 +101,15 @@ public class GameManager : MonoBehaviour
 
     public static void level5Filter()
     {
+        Debug.Log("level 5 time");
+
         Debug.Log("fire filter on + monster here");
 
     }
     public static void level6Filter()
     {
+        Debug.Log("level 6 time");
+
         Debug.Log("tiki filter on + monster gone");
         GameObject.Find("Monster").SetActive(false);
         GameObject.Find("House/floor").SetActive(false);
