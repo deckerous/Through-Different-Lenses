@@ -222,6 +222,7 @@ public class GameManager : MonoBehaviour
         Fire.SetActive(true);
         Monster.SetActive(true);
         CoatRack.SetActive(false);
+        Destroy(FireGlasses);
     }
     public static void level6Filter()
     {
@@ -233,6 +234,7 @@ public class GameManager : MonoBehaviour
 
         Beach.SetActive(true);
         Fire.SetActive(false);
+        
         //Monster.SetActive(false);
 
         //disable: floor, scenedirector/plane, piles of clothes, flame effect
