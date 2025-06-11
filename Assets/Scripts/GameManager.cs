@@ -88,6 +88,17 @@ public class GameManager : MonoBehaviour
         LODGlasses.SetActive(false);
         FireGlasses.SetActive(false);
 
+        Table.GetComponent<LODGroup>().enabled = false;
+        Lamp.GetComponent<LODGroup>().enabled = false;
+        pens.GetComponent<LODGroup>().enabled = false;
+        PhotoFrame.GetComponent<LODGroup>().enabled = false;
+        PhotoFrame2.GetComponent<LODGroup>().enabled = false;
+        Dresser.GetComponent<LODGroup>().enabled = false;
+        Lamp1.GetComponent<LODGroup>().enabled = false;
+        Nightstand.GetComponent<LODGroup>().enabled = false;
+        Trophy.GetComponent<LODGroup>().enabled = false;
+        cup1.GetComponent<LODGroup>().enabled = false;
+
         // Start with a blink
         transitioning = true;
         Application.targetFrameRate = 60; // Cap frame rate
