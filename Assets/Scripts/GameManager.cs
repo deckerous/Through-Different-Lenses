@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private static GameObject StrongGlasses;
     private static GameObject LODGlasses;
     private static GameObject FireGlasses;
+    //private static GameObject TikiMask;
 
     // Objects for LOD
     private static GameObject Table;
@@ -82,11 +83,13 @@ public class GameManager : MonoBehaviour
         StrongGlasses = GameObject.Find("/Glasses/StrongGlasses");
         LODGlasses = GameObject.Find("/Glasses/Drawer/CubeGlasses");
         FireGlasses = GameObject.Find("/Glasses/FireGlasses");
+        // TikiMask = GameObject.Find("Okole Maluna Model");
 
         LightGlasses.SetActive(false);
         StrongGlasses.SetActive(false);
         LODGlasses.SetActive(false);
         FireGlasses.SetActive(false);
+        //TikiMask.SetActive(false);
 
         Table.GetComponent<LODGroup>().enabled = false;
         Lamp.GetComponent<LODGroup>().enabled = false;
@@ -222,8 +225,11 @@ public class GameManager : MonoBehaviour
     }
     public static void level6Filter()
     {
+        GameObject.Find("Okole Maluna Model");
         Debug.Log("level 6 time");
         FilterControl.filmGrain.active = false;
+        GameObject Tikimask = GameObject.Find("Okole Maluna Model");
+        Tikimask.SetActive(false);
 
         Beach.SetActive(true);
         Fire.SetActive(false);
