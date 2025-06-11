@@ -1,0 +1,5 @@
+/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

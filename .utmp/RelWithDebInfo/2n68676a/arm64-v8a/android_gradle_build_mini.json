@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "/Users/dominicroser/Through-Different-Lenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt",
+    "/Users/dominicroser/Through-Different-Lenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Applications/Unity/Hub/Editor/6000.1.4f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Applications/Unity/Hub/Editor/6000.1.4f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/dominicroser/Through-Different-Lenses/.utmp/RelWithDebInfo/2n68676a/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "game::@d02bb112ea9f9c2ed29f": {
+      "artifactName": "game",
+      "abi": "arm64-v8a",
+      "output": "/Users/dominicroser/Through-Different-Lenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2n68676a/obj/arm64-v8a/libgame.so",
+      "runtimeFiles": []
+    }
+  }
+}
