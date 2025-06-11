@@ -56,6 +56,7 @@ public class Blink : MonoBehaviour
             case 4: GameManager.level4Filter(); break;
             case 5: GameManager.level5Filter(); break;
             case 6: GameManager.level6Filter(); break;
+            case 7: GameManager.normalVision(); break;
         }
 
         // Slide up
