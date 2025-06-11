@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         cup1.GetComponent<LODGroup>().enabled = false;
 
         StrongGlasses.SetActive(false);
-        FireGlasses.SetActive(true);
+        //FireGlasses.SetActive(true);
     }
 
     public static void level5Filter()
