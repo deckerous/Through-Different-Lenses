@@ -8,26 +8,20 @@ You are blind and are looking for your glasses in a VR environment. You discover
 - Dalton - Interactions, shaders, filters. 
 - Dom - model, Filters, shaders
 - Martin - Modeling
-- James - Envoronment, transitions
+- James - Project Management, XR SDE
   
 ## Feature list
-- Possible scene augmenting glasses features:
+- Scene augmenting glasses features:
 - Near or far sighted  (focus point)
-- Colorblind (Screen-space)
-- Cartoonish (Shaders)
-- Drunk (Screen-space)
-- Passing out (Shaders fading to black with distance)
-- Neon rave texture (Shaders + Extra Models)
-- Anime outlines (Shaders)
-- Horror (Model Swap)
-- Pass through
-- Flashlight
-- Underwater (screen space, model swaps)
-- Puzzle with certain combinations of glasses/scenes to reveal hints to get to next level
+- Sunglasses (Color tint)
+- Horror (Model Swap/Animated film Grain)
+- Flashlight (Point light and Vignette)
+- Beach (Model Swap/Water physics)
+- Puzzle with certain combinations of glasses to reveal hints to get to next pair
 
 ## Development plan
 - Written specification detailing gameplay loop, and expected interaction behaviors.
-- Working VR Unity environment: URP with XR interaction toolkit and git LFS.
+- Working XR Unity environment: URP with XR interaction toolkit and git LFS.
 - Basic scene template with different assets or at least place holders for future developed assets.
 - Working interactions driving dummy outputs. 
 - Base filter for blurry surrounding environment.
